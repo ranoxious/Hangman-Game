@@ -1,0 +1,44 @@
+body{
+    background-color:#E3E3E3 ;  
+}
+
+header{
+    font-size:80px;
+    text-align:center;
+    font-family: 'Amatic SC', cursive;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    position:absolute;
+    bottom:0;
+    height:40px;   /* Height of the footer */
+    background: #FFF033;
+    text-align: center;
+    color:black;
+    padding: 15px 0;
+    clear: both;
+    width:100%;
+    font-size:24px;
+    border-top: 8px solid #ECFF33;
+    font-family: 'Shadows Into Light', cursive;
+
+
+
+ }
