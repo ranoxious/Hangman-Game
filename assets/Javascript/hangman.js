@@ -1,9 +1,11 @@
 //array of words
 
-var wordOptions = ['cat', 'feline', 'dog', 'wholefoods', 'dora', 'rudra', 'muhammad', 'celery', 'Doda', 'water',
-      'swimsuit', 'california', 'venice', 'jira', 'Azure', 'chicken', 'organic', 'love', 'photography', 'wings',
-      'Amazon', 'Fiji', 'litter', 'lotion', 'food', 'bills', 'Netflix', 'Apple', 'mobster', 'YouTube'];
+// var wordOptions = ['cat', 'feline', 'dog', 'wholefoods', 'dora', 'rudra', 'muhammad', 'celery', 'Doda', 'water',
+//       'swimsuit', 'california', 'venice', 'jira', 'Azure', 'chicken', 'organic', 'love', 'photography', 'wings',
+//       'Amazon', 'Fiji', 'litter', 'lotion', 'food', 'bills', 'Netflix', 'Apple', 'mobster', 'YouTube'];
 
+
+	  var wordOptions = ['cat', 'feline'];
 
 
 //variables
@@ -53,16 +55,26 @@ function checkWords(letter)
 			for (var i = 0; i < optionWord.length; i++) {
 			  if (optionWord[i] == letter) {
 				blanksAndSuccesses[i] = letter;
-				document.querySelector('#blanks').innerHTML = blanksAndSuccesses;
+				document.querySelector('#blanks').innerHTML = blanksAndSuccesses.join("");
 					remainingletters--;
 				
 			  }
 			}
 
+			var winCount = 0
+			function myfunction() {
+				if (remainingletters == 0) {
+					
+				}
+			}
+			document.querySelector('#wins').innerHTML = winCount;
+
 			if(remainingletters == 0)
 				{
+					winCount = winCount + 1;
 					alert("You won! Please have a cookie.");
 						//Your letters match that of the winner, you are a winner
+						document.querySelector('#wins').innerHTML = winCount;
 					startGame();
 				}
 		  
@@ -87,9 +99,21 @@ function checkWords(letter)
 			  guessesLeft--;
 			  document.querySelector('#guessesleft').innerHTML = guessesLeft;
 
+			  var lossCount = 0
+			  function myfunction() {
+				  if (remainingletters == 0) {
+					  
+				  }
+			  }
+			  document.querySelector('#losses').innerHTML = lossCount;
+
+
 			  if(guessesLeft == 0)
 			  {
-			  	alert("You Lost. Better luck next time.");
+				  lossCount = lossCount + 1;
+				  alert("You Lost. Better luck next time.");
+				  document.querySelector('#losses').innerHTML = lossCount;
+
 			  	startGame();
 			  }
 			}
