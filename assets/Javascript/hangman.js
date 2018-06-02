@@ -61,7 +61,7 @@ function checkWords(letter)
 
 			if(remainingletters == 0)
 				{
-					alert("You win");
+					alert("You won! Please have a cookie.");
 						//Your letters match that of the winner, you are a winner
 					startGame();
 				}
@@ -76,6 +76,8 @@ function checkWords(letter)
 			//   }
 		  
 			// }
+
+			//I tried adding ++lossCount and wonCount but I can't get the functions to work. Could you help me?
 		  
 			//wrong guess = decrease chances by 1
 			 if(isLetterInWord == false)
@@ -87,7 +89,7 @@ function checkWords(letter)
 
 			  if(guessesLeft == 0)
 			  {
-			  	alert("You Lost");
+			  	alert("You Lost. Better luck next time.");
 			  	startGame();
 			  }
 			}
