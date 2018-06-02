@@ -1,8 +1,8 @@
 //array of words
 
 var wordOptions = ['cat', 'feline', 'dog', 'wholefoods', 'dora', 'rudra', 'muhammad', 'celery', 'Doda', 'water',
-      'swimsuit', 'california', 'venice', 'jira', 'azure', 'chicken', 'organic', 'love', 'photography', 'wings',
-      'amazon', 'Fiji', 'litter', 'lotion', 'food', 'bills', 'netflix', 'apple', 'mobster', 'YouTube'];
+      'swimsuit', 'california', 'venice', 'jira', 'Azure', 'chicken', 'organic', 'love', 'photography', 'wings',
+      'Amazon', 'Fiji', 'litter', 'lotion', 'food', 'bills', 'Netflix', 'Apple', 'mobster', 'YouTube'];
 
 
 
@@ -31,7 +31,7 @@ function startGame ()
 	blanksAndSuccesses = [];
 
 	//reset the HTML too
-      document.querySelector('#selectedletters').innerHTML = wrongLetters;
+      document.querySelector('#wrongletters').innerHTML = wrongLetters;
 	  document.querySelector('#guessesleft').innerHTML = guessesLeft;
 
 	//loop through the array
@@ -61,38 +61,38 @@ function checkWords(letter)
 
 			if(remainingletters == 0)
 				{
-                    winCount++;
-					alert("You won! Please have a cookie.");
+					alert("You win");
 						//Your letters match that of the winner, you are a winner
 					startGame();
 				}
 		  
-		
+			//No need of this step, I merged it above.
+			// if (isLetterInWord) {
+			//   for (var i = 0; i < numbersBlanks; i++) {
+			// 	if (optionWord[i] == letter) {
+			// 	  blanksAndSuccesses[i] = letter;
+			// 	}
+		  
+			//   }
+		  
+			// }
 		  
 			//wrong guess = decrease chances by 1
 			 if(isLetterInWord == false)
 			 {
-				 guessesLeft--;
-				 wrongLetters.push(letter);
-				 document.querySelector('#selectedletters').innerHTML = wrongLetters;
+			  wrongLetters.push(letter);
+ 			  document.querySelector('#wrongletters').innerHTML = wrongLetters;
+			  guessesLeft--;
+			  document.querySelector('#guessesleft').innerHTML = guessesLeft;
 
-			 }
-
-				
-			
-			if(guessesLeft == 0)
-			{
-			
-				 lossCount++;
-				 document.querySelector("#losses").innerhtml = losses;
-				 	alert("Sorry, you have lost. Better luck next time.");
+			  if(guessesLeft == 0)
+			  {
+			  	alert("You Lost");
 			  	startGame();
-			
+			  }
 			}
-		
-
-}
-			
+		  
+		  } 
  //start
 
 	
@@ -104,5 +104,6 @@ document.onkeyup = function(event) {
 	
   var wordLetters = String.fromCharCode(event.keyCode).toLowerCase();
   checkWords(wordLetters);
+ // roundComplete();
 
 }
